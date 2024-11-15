@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Confirmation</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Confirmation</h1>
+    {% if cart_items %}
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.course.title }}</td>
+            <td>₹{{ item.course.price }}</td>
+            <td>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>Your cart is empty!</h2>
+    {% endif %}
+</body>
+</html>

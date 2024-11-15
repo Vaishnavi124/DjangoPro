@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            /* background: linear-gradient(to right, #00c6ff, #0072ff); */
+            background-image: url('https://cdn.pixabay.com/photo/2023/08/14/15/42/milkyway-8190232_640.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            /* color: #fff; */
+            /* background-color:rgb(205, 201, 201); */
+        }
+        form {
+            background-color: rgb(200, 200, 245);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color:brown;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color:black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            letter-spacing: 2px;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+        }
+        .register-button {
+            background-color: black;
+            border: 2px solid white(38, 202, 38);
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+        .register-button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register-button:hover {
+            background-color: #ff4c4c;
+        }
+        .register-button:hover a {
+            color: black;
+        }
+        .alert {
+            background-color: #ffdddd;
+            color: #d8000c;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #d8000c;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <p>If you are a new user, register below👇🏽</p>
+
+        {% if messages %}
+        <div class="alert" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <input type="text" name="username" placeholder="Enter your name" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Submit</button>
+        <button class="register-button"><a href="{% url 'register' %}">Register</a></button>
+    </form>
+</body>
+</html>

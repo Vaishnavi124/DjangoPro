@@ -1,0 +1,254 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            #containermain{
+                width:100%;
+                height:100%;
+                background-color: red;
+            }
+            /* body{
+                background-image:radial-gradient(white,white,darkblue);
+            } */
+            nav {
+                width: 100%;
+                height: 80px;
+                background-image: linear-gradient(40deg, skyblue, darkblue);
+                display: flex;
+                /* flex-wrap: wrap; */
+                
+                
+            }
+            
+            #main1,#home,#profile,#courses,#logout,#cart {
+                /* color: rgb(35, 100, 35); */
+                color:darkblue;
+                width: 10%;
+                height: 100%;
+                /* background-color: red; */
+                font-size: 10px;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                float: left;
+                margin-left:100px;
+            }   
+           #home,#profile,#courses,#logout,#cart{
+                color:white;
+                font-size: 25px;
+           }
+           #container{
+            width: 100%;
+            height:645px;
+            /* background-color: red; */
+            /* display: flex;
+            flex-direction: column; */
+           }
+           #home a, #profile a, #courses a, #logout a, #cart a{
+            color: white; 
+            text-decoration: none; 
+            }
+            #home a:hover, #profile a:hover, #courses a:hover, #logout a:hover, #cart a:hover {
+            color: black; 
+            transform: scale(1.1);
+        }
+        #line{
+            text-align: center;
+            margin-top: 60px;
+            font-family: cursive    ;
+        }   
+        #button,#buttonEnroll{
+            width:20%;
+            height:40px;
+            margin-left:600px;
+            border-radius: 10px;
+        }
+        #button a, #buttonEnroll a{
+            text-decoration: none;
+            color: black;
+        }
+        #button a:hover,#buttonEnroll a:hover{
+            color: white;
+        }
+        #button:hover,#buttonEnroll:hover{
+            transform: scale(1);
+            background-color: black;
+            color:white;
+            letter-spacing: 2px;
+        }
+        #buttonEnroll:hover{
+            font-size: 20px;
+        }
+        #buttonEnroll{
+            width:20%;
+            margin-left: 600px;
+            word-spacing: 3px;
+        }
+        #heading{
+            margin-left: 640px;
+            letter-spacing: 1px ;
+            color: rgb(112, 25, 193);
+        }
+        #video{
+            width:50%;
+            height:400px;
+            margin-left: 380px;
+        }
+        #coursesHead{
+            text-align: center;
+            letter-spacing: 1px;
+            color: rgb(112, 25, 193);
+        }
+
+        #container1 {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 40px;
+            justify-content: center; 
+        
+        }
+        #main {
+            width: 300px;
+            background-color:whitesmoke;
+            padding: 15px;
+            margin-top:40px;
+            border-radius: 10px;
+            box-shadow: 1.5px 1.5px 1.5px black;
+            text-align: center;
+            text-decoration: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    #main .title, #main .des, #main .author, #main .price {
+        text-decoration: none;
+        color: black;  
+    }
+        #main .img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+        #main .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: brown;
+        }
+        #main .des {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+        #main .author {
+            font-size: 14px;
+            color: #888;
+            margin: 10px 0;
+        }
+        #main .price {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        #user{
+            text-align: center;
+            margin-top: 30px;
+            color:brown;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 1px black;
+        }
+        #searchBar {
+            float: left;
+            margin-left: 50px; /* Adjust to space it appropriately */
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+#searchInput {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #888;
+    padding: 2px;
+    /* margin-top: 23px; */
+}
+
+#searchBtn {
+    height: 40px;
+    margin-left: 2px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-top: 21px; */
+}
+
+#searchBtn:hover {
+    background-color: skyblue;
+}
+#courses a {
+    color: white;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+        </style>
+    </head>
+    
+    <body>
+        <nav>
+            <div id="main1"><h1>Vaish's Coding School</h1></div>
+            <div id="home"><a href="{% url 'home' %}">Home🏠</a></div>
+            <div id="courses"><a href="{% url 'courses' %}">Courses📒</a></div>
+            <div id="profile"><a href="{% url 'profile' %}">Profile👤</a></div>
+            <div id="cart"><a href="{% url 'cart' %}">Cart🛒</a></div>
+            <form action="{% url 'search_item' %}">
+            <div id="searchBar">
+                <input type="text" placeholder="Search..." id="searchInput" name="search">
+                <button id="searchBtn">🔍</button>
+            </div></form>
+            <div id="logout"><a href="{% url 'logoutview' %}">Logout→</a></div>
+            
+        </nav>
+        <h1 id="user">Welcome, {{ user.username }}!</h1>
+        <h1 id="line">Coding is the language of the future,<br><br>where creativity meets logic and innovation knows no bounds.</h1><br><br>
+        <button id="button"><a href="{% url 'courses' %}">Start Your Coding Adventure Now!</a></button><br><br><br><br>
+        <h2 id="heading">Upcoming Courses👇</h2><br><br>
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/pkYVOmU3MgA?si=r7KUkh4LBwCPAWG9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+        <button id="buttonEnroll"><a href="{% url 'courses' %}">Enroll Now</a></button><br><br>
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/NWONeJKn6kc?si=RAT19N6tRtbHqgL1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+        <button id="buttonEnroll"><a href="{% url 'courses' %}">Enroll Now</a></button><br><br><br>
+        <h2 id="coursesHead">Courses Offered!!</h2>
+        <div id="container1">
+            {% for i in data %}
+            <a href="{% url 'courses' %}"><div id="main">
+                <div class="img"><img src="{{ i.image.url }}" alt=""></div>
+                <div class="title">{{ i.title }}</div>
+                <div class="des">{{ i.description }}</div>
+                <div class="author">By {{ i.author }}</div>
+                <div class="price">₹{{ i.price }}</div><br>
+            </div></a>
+            {% endfor %}
+        </div>
+        <br><br><br><br><br>
+    </body>
+    
+    </html>

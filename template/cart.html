@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body{
+            /* background-color: #f3e5f5; */
+            background-color: #f2f2f2;
+
+        }
+        #info{
+            text-align: center;
+            font-family:monospace;
+            letter-spacing: 1px;
+            color: brown;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table, th, td {
+            border: 2px solid #a8a1a1;
+           
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        #delete {
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: green;
+        }
+        .button{
+            width:20%;
+            height:30px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px black;
+            cursor: pointer;
+            margin-left: 580px;
+        }
+        .button:hover{
+            transform: scale(1.1);
+            background-color:black;
+            color: white;
+            box-shadow: 2px 2px 2px black;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+        .button a{
+            text-decoration: none;
+            color: black;
+        }
+        .button:hover a{
+            text-decoration: none;
+            color: white;
+        }
+        th{
+            background-color: gray;
+            color: black;
+            letter-spacing: 1px;
+        }
+        #total{
+            color:darkblue
+        }
+        #amount{
+            color:crimson;
+            font-size: 20px;
+        }
+        .course-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px; 
+}
+
+.course-title {
+    font-weight: bold;
+}
+
+.course-description {
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px; 
+}
+
+.course-description-expand {
+    display: none;
+}
+
+.course-description-toggle {
+    cursor: pointer;
+    color: #3498db;
+}
+    </style>
+</head>
+<body>
+    <div>
+    <h1 id="info">Your Cart🛒</h1>
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.course.title }}</td>
+            <td>₹{{ item.course.price }}</td>
+            <td>
+                <a href="{% url 'remove_from_cart' item.id %}" id="delete">Delete🗑️</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2" id="total"><strong>Total Amount</strong></td>
+            <td id="amount">₹{{ total_amount }}</td>
+        </tr>
+    </table>
+    </div>
+    <br><br>
+    <button class="button"><a href="{% url 'delete_cart' %}">Delete All Courses</a></button><br><br>
+    <button class="button"><a href="{% url 'courses' %}">Continue Buying</a></button>
+</body>
+</html>

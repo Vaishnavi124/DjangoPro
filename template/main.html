@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+        blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin: 20px 0;
+            color: #ffeb3b; /* Change color for emphasis */
+            max-width: 600px;
+            line-height: 1.5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            blockquote {
+                font-size: 1.2rem;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome😄</h1>
+    <blockquote>
+        "The journey of a thousand miles begins with one step." 
+    </blockquote><br>
+    <button><a href="{% url 'register' %}">Sign Up👈</a></button>
+</body>
+</html>

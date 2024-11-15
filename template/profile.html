@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            /* background-color: black; */
+            background-image: linear-gradient(to right,black,black,white);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .profile-header {
+            background-color: #3498db;
+            padding: 10px 20px;
+            color: #fff;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .profile-header p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .profile-details {
+            margin-top: 20px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .profile-details p {
+            font-size: 1.1em;
+            margin: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            color: #34495e;
+            background-color: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .profile-details p strong {
+            color: #2c3e50;
+        }
+
+        @media (max-width: 500px) {
+            .profile-card {
+                width: 90%;
+            }
+
+            .profile-header h2 {
+                font-size: 1.6em;
+            }
+
+            .profile-header p {
+                font-size: 1.1em;
+            }
+
+            .profile-details p {
+                font-size: 1em;
+            }
+        }
+        #head{
+            letter-spacing: 1px;
+            color: brown;
+            font-weight: bold;
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <h3 id="head">Your Profile</h3>
+        <div class="profile-header">
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>@{{ user.username }}</p>
+        </div>
+
+        <div class="profile-details">
+            <p><strong>First Name:</strong> <span>{{ user.first_name }}</span></p>
+            <p><strong>Last Name:</strong> <span>{{ user.last_name }}</span></p>
+            <p><strong>Username:</strong> <span>{{ user.username }}</span></p>
+        </div>
+    </div>
+</body>
+</html>
