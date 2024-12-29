@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-@m#%0pqyr7hz(*k5kb7bs9#kcr3dlbk)tah2fh81rh)_%lbs3p
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'techschool-621gy54i2-vaishnavi-nallans-projects.vercel.app',
-    'your-vercel-project-name.vercel.app'
+   'exploreTech.vercel.app',
+   'your-custom-domain.com'
 ]
 
 
